@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	// fmt.Println("Hello, World!")
 	scanner := bufio.NewScanner(os.Stdin)
 	err := scanner.Err()
 	if err != nil {
@@ -20,6 +19,11 @@ func main() {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
 		input := cleanInput(scanner.Text())[0]
-		fmt.Printf("Your command was: %s\n", input)
+		if cmd, ok := commandMap[input]; ok {
+			cmd.callback()
+		} else {
+			fmt.Printf("Unknown command\n")
+		}
+
 	}
 }
