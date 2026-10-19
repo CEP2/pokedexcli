@@ -1,5 +1,6 @@
 package main
 
 type config struct {
-	state string
+	state       string
+	cmdRegistry map[string]cliCommand
 }
