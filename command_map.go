@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func commandMap(cfg *config) error {
+func commandMap(cfg *config, args ...string) error {
 	mapAPI := "https://pokeapi.co/api/v2/location-area/"
 	if cfg.next != nil {
 		mapAPI = *cfg.next
