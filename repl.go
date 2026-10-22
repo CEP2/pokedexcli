@@ -29,13 +29,12 @@ func startRepl(cfg *config) error {
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
 		input := cleanInput(scanner.Text())[0]
-		if cmd, ok := commandMap[input]; ok {
+		if cmd, ok := cfg.cmdRegistry[input]; ok {
 			cmd.callback(cfg)
 		} else {
 			fmt.Printf("Unknown command\n")
 		}
 
 	}
-
 	return nil
 }

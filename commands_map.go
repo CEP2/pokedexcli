@@ -6,7 +6,7 @@ type cliCommand struct {
 	callback    func(*config) error
 }
 
-var commandMap = map[string]cliCommand{
+var commandsList = map[string]cliCommand{
 	"exit": {
 		name:        "exit",
 		description: "Exit the Pokedex",
@@ -16,5 +16,15 @@ var commandMap = map[string]cliCommand{
 		name:        "help",
 		description: "Prints command list",
 		callback:    commandHelp,
+	},
+	"map": {
+		name:        "map",
+		description: "displays Pokemon map locations. repeated calls display next 20 locations",
+		callback:    commandMap,
+	},
+	"mapb": {
+		name:        "mapb",
+		description: "displays previous 20 Pokemon map locations.",
+		callback:    commandMapb,
 	},
 }
