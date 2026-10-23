@@ -24,7 +24,7 @@ func commandMap(cfg *config, args ...string) error {
 		// parse json get individual lines.
 		defer res.Body.Close()
 		if res.StatusCode > 299 {
-			fmt.Errorf("response failed: %v", res.StatusCode)
+			return fmt.Errorf("response failed: %v", res.StatusCode)
 		}
 
 		data, err = io.ReadAll(res.Body)
