@@ -32,4 +32,9 @@ var commandsList = map[string]cliCommand{
 		description: "explores a location. usage: 'explore <map location>'",
 		callback:    commandExplore,
 	},
+	"catch": {
+		name:        "catch",
+		description: "attempts to catch a pokemon. usage: 'catch <pokemon>'",
+		callback:    commandCatch,
+	},
 }

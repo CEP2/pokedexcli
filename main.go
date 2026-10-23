@@ -12,6 +12,7 @@ func main() {
 	duration := 5 * time.Second
 	cfg := &config{
 		cmdRegistry: commandsList,
+		pokedex:     map[string]Pokemon{},
 		cache:       pokecache.NewCache(duration),
 	}
 

@@ -11,7 +11,7 @@ func commandExplore(cfg *config, location ...string) error {
 	baseURL := "https://pokeapi.co/api/v2/location-area/"
 	//receive location
 	if len(location) == 0 {
-		return fmt.Errorf("location not provided.\t\nexplore <location-area Name or ID>.")
+		return fmt.Errorf("location not provided.\t\nusage: explore <location-area Name or ID>.")
 	}
 	loc := location[0]
 	locAPI := baseURL + loc
@@ -48,8 +48,6 @@ func commandExplore(cfg *config, location ...string) error {
 	for _, pkmn := range locationArea.PokemonEncounters {
 		fmt.Printf("\t- %s\n", pkmn.Pokemon.Name)
 	}
-	//store API in cache
-	cfg.cache.Add(locAPI, data)
 
 	return nil
 }
