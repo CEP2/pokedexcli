@@ -1,6 +1,6 @@
 package main
 
-type LocationAreaResponse struct {
+type LocationAreasResponse struct {
 	Count    int     `json:"count"`
 	Next     *string `json:"next"`
 	Previous *string `json:"previous"`

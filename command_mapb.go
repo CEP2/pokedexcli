@@ -39,19 +39,19 @@ func commandMapb(cfg *config, args ...string) error {
 		cfg.cache.Add(mapAPI, data)
 	}
 
-	var locationArea LocationAreaResponse
-	err := json.Unmarshal(data, &locationArea)
+	var locationAreas LocationAreasResponse
+	err := json.Unmarshal(data, &locationAreas)
 	if err != nil {
 		return err
 	}
 
-	for _, loc := range locationArea.Results {
+	for _, loc := range locationAreas.Results {
 		fmt.Println(loc.Name)
 	}
 
 	//update next call
-	cfg.next = locationArea.Next
-	cfg.previous = locationArea.Previous
+	cfg.next = locationAreas.Next
+	cfg.previous = locationAreas.Previous
 
 	return nil
 }
